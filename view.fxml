@@ -4,19 +4,76 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
+<?import com.pixelduke.control.Ribbon?>
+<?import com.pixelduke.control.ribbon.RibbonGroup?>
 
+<?import com.pixelduke.control.ribbon.RibbonTab?>
+<?import javafx.scene.control.Button?>
+<?import com.pixelduke.control.ribbon.QuickAccessBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="master-pane"
             stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Word.Controller">
     <center>
         <TextArea fx:id="textArea" nodeOrientation="LEFT_TO_RIGHT" styleClass="editor" wrapText="true"></TextArea>
     </center>
+
     <top>
-        <MenuBar prefHeight="30" prefWidth="800" stylesheets="@Stylesheet.css" BorderPane.alignment="CENTER">
-            <Menu text ="Menu">
-                <MenuItem fx:id="newFile" mnemonicParsing="false" onAction="#newFile" text="New" accelerator="Shortcut+N"></MenuItem>
-                <MenuItem fx:id="openFile" mnemonicParsing="false" onAction="#openFile" text="Open" accelerator="Shortcut+O"></MenuItem>
-                <MenuItem fx:id="save" onAction="#save" text="Save" accelerator="Shortcut+S"></MenuItem>
-            </Menu>
-        </MenuBar>
+        <Ribbon maxHeight="150">
+            <quickAccessBar>
+                <QuickAccessBar >
+                    <buttons>
+                        <Button onAction="#save">
+                            <graphic>
+                                <ImageView >
+                                    <Image url="@Save-16px.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button>
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@Undo-16px.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button>
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@Redo-16px.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </buttons>
+                </QuickAccessBar>
+            </quickAccessBar>
+            <tabs>
+
+                <RibbonTab text="HOME" >
+                    <ribbonGroups>
+                        <RibbonGroup title="" prefHeight="50" maxHeight="80">
+                            <nodes>
+
+                                <Button contentDisplay="TOP" text="New" prefWidth="80" >
+
+                                </Button>
+                                <Button contentDisplay="TOP" text="Save" prefWidth="80">
+
+                                </Button>
+                                <Button contentDisplay="TOP" text="Save as" prefWidth="80">
+
+                                </Button>
+                            </nodes>
+                        </RibbonGroup>
+                    </ribbonGroups>
+                </RibbonTab>
+            </tabs>
+        </Ribbon>
+
+
+
     </top>
+
+
+
 </BorderPane>
