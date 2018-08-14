@@ -1,4 +1,4 @@
-package Word;
+package Src;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

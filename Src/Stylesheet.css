@@ -1,0 +1,19 @@
+
+
+.text-area {
+
+    -fx-padding: 20px;
+    -fx-background-insets: 20px;
+}
+.text-area .content{
+    -fx-padding: 20px;
+}
+.QuickAccessBar {
+
+}
+.master-pane{
+
+}
+.homebar{
+
+}

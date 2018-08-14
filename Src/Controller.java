@@ -1,5 +1,6 @@
-package Word;
+package Src;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -34,8 +35,9 @@ public class Controller implements Initializable {
             textArea.clear();
         } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Create New File without saving?");
-            alert.setContentText("Choose your option.");
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Create New File without saving?");
 
             ButtonType buttonTypeOne = new ButtonType("Save");
             ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -64,6 +66,7 @@ public class Controller implements Initializable {
         else{
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Warning");
+            alert.setHeaderText(null);
             alert.setContentText("Open new file without saving current?");
 
             ButtonType buttonTypeOne = new ButtonType("Save and Open");
@@ -110,6 +113,10 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    public void Close() {
+        Platform.exit();
     }
 
     private void readText(File F) {

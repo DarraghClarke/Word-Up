@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import com.pixelduke.control.Ribbon?>
 <?import com.pixelduke.control.ribbon.RibbonGroup?>
-
 <?import com.pixelduke.control.ribbon.RibbonTab?>
 <?import javafx.scene.control.Button?>
 <?import com.pixelduke.control.ribbon.QuickAccessBar?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import javafx.geometry.Insets?>
+
+<?import com.pixelduke.control.ribbon.Column?>
+<?import com.pixelduke.control.ribbon.RibbonItem?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="master-pane"
-            stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Word.Controller">
+            stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Src.Controller">
     <center>
         <TextArea fx:id="textArea" nodeOrientation="LEFT_TO_RIGHT" stylesheets="@Stylesheet.css" styleClass="t" wrapText="true"  maxWidth="800"  >
 
@@ -58,15 +59,28 @@
                         <RibbonGroup title="" prefHeight="50" maxHeight="80">
                             <nodes>
 
-                                <Button contentDisplay="TOP" text="New" prefWidth="80" >
-
+                                <Button contentDisplay="TOP" text="New" prefWidth="80" onAction="#newFile">
+                                    <graphic>
+                                        <ImageView >
+                                            <Image url="@New-32px.png" />
+                                        </ImageView>
+                                    </graphic>
                                 </Button>
-                                <Button contentDisplay="TOP" text="Save" prefWidth="80">
-
+                                <Button contentDisplay="TOP" text="Save" prefWidth="80" onAction="#save">
+                                    <graphic>
+                                        <ImageView >
+                                            <Image url="@Save-32px.png" />
+                                        </ImageView>
+                                    </graphic>
                                 </Button>
-                                <Button contentDisplay="TOP" text="Save as" prefWidth="80">
-
+                                <Button contentDisplay="TOP" text="Open" prefWidth="80" onAction="#openFile" >
+                                    <graphic>
+                                        <ImageView >
+                                            <Image url="@Open-32px.png" />
+                                        </ImageView>
+                                    </graphic>
                                 </Button>
+                                
                             </nodes>
                         </RibbonGroup>
                     </ribbonGroups>
