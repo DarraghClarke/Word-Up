@@ -42,17 +42,17 @@ public class Controller implements Initializable {
                 switch (newSize) {
                     case "14px":
                         IndexRange selection14 = textArea.getSelection();
-                        //textArea.setStyleClass(selection14.getStart(), selection14.getEnd(), "-fx-font-size: 14px");
-                        textArea.setStyle("-fx-font-size: 14;");
+                        textArea.setStyleClass(selection14.getStart(), selection14.getEnd(), "px14");
+                        //textArea.setStyle("-fx-font-size: 14;");
                         break;
                     case "16px":
                         System.out.println("16");
                         IndexRange selection16 = textArea.getSelection();
-                        textArea.setStyle("-fx-font-size: 16;");
+                        textArea.setStyleClass(selection16.getStart(), selection16.getEnd(), "px16");
                         break;
                     case "18px":
                         IndexRange selection18 = textArea.getSelection();
-                        textArea.setStyle("-fx-font-size: 18;");
+                        textArea.setStyleClass(selection18.getStart(), selection18.getEnd(), "px18");
                         break;
                 }}});
     }

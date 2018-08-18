@@ -1,12 +1,12 @@
 # Word Up
 
-An Open Source JavaFX based Word Processor
+An Open Source JavaFX based Word Processor <br/><br/> 
 -Currently to run , Fork the project and compile in an IDE of choice
 
 ## External Libraries Used  
 
 FXRibbon - [Github link](https://github.com/dukke/FXRibbon)
-RichTextFX - [Github link](https://github.com/FXMisc/RichTextFX)
+ <br/><br/> RichTextFX - [Github link](https://github.com/FXMisc/RichTextFX)
 
 ### Authors
 
