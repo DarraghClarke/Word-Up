@@ -1,14 +1,17 @@
 package Src;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import org.fxmisc.richtext.StyleClassedTextArea;
 
 import java.io.*;
 import java.net.URL;
@@ -16,17 +19,42 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+
     @FXML
-    private TextArea textArea;//where the text is input
+    private StyleClassedTextArea textArea;//where the text is input
     private Stage stage;
     private final FileChooser file = new FileChooser();
+    private ComboBox<String> FontCombo = new ComboBox<>(FXCollections.observableList(Font.getFamilies()));
+    @FXML
+    private ComboBox<String> fontSize; // Value injected by FXMLLoader
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         file.setInitialDirectory(new File(System.getProperty("user.home")));
         file.getExtensionFilters().addAll(
-                        new FileChooser.ExtensionFilter("Text", "*.txt"),
-                        new FileChooser.ExtensionFilter("All Files", "*.*"));
+                new FileChooser.ExtensionFilter("Text", "*.txt"),
+                new FileChooser.ExtensionFilter("All Files", "*.*"));
+
+        //Listener for font size
+        fontSize.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldSize, String newSize) {
+                switch (newSize) {
+                    case "14px":
+                        IndexRange selection14 = textArea.getSelection();
+                        //textArea.setStyleClass(selection14.getStart(), selection14.getEnd(), "-fx-font-size: 14px");
+                        textArea.setStyle("-fx-font-size: 14;");
+                        break;
+                    case "16px":
+                        System.out.println("16");
+                        IndexRange selection16 = textArea.getSelection();
+                        textArea.setStyle("-fx-font-size: 16;");
+                        break;
+                    case "18px":
+                        IndexRange selection18 = textArea.getSelection();
+                        textArea.setStyle("-fx-font-size: 18;");
+                        break;
+                }}});
     }
 
     @FXML
@@ -118,6 +146,8 @@ public class Controller implements Initializable {
     public void Close() {
         Platform.exit();
     }
+
+
 
     private void readText(File F) {
         String T;
