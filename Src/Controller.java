@@ -27,6 +27,8 @@ public class Controller implements Initializable {
     private ComboBox<String> FontCombo = new ComboBox<>(FXCollections.observableList(Font.getFamilies()));
     @FXML
     private ComboBox<String> fontSize; // Value injected by FXMLLoader
+    @FXML
+    private ComboBox<String>  fontCombo;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,24 +37,44 @@ public class Controller implements Initializable {
                 new FileChooser.ExtensionFilter("Text", "*.txt"),
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
 
+
+
         //Listener for font size
         fontSize.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> selected, String oldSize, String newSize) {
                 switch (newSize) {
+                    case "12px":
+                        textArea.setStyleClass(textArea.getSelection().getStart(), textArea.getSelection().getEnd(), "px12");
+                        break;
                     case "14px":
-                        IndexRange selection14 = textArea.getSelection();
-                        textArea.setStyleClass(selection14.getStart(), selection14.getEnd(), "px14");
-                        //textArea.setStyle("-fx-font-size: 14;");
+                        textArea.setStyleClass(textArea.getSelection().getStart(), textArea.getSelection().getEnd(), "px14");
                         break;
                     case "16px":
-                        System.out.println("16");
-                        IndexRange selection16 = textArea.getSelection();
-                        textArea.setStyleClass(selection16.getStart(), selection16.getEnd(), "px16");
+                        textArea.setStyleClass(textArea.getSelection().getStart(), textArea.getSelection().getEnd(), "px16");
                         break;
                     case "18px":
-                        IndexRange selection18 = textArea.getSelection();
-                        textArea.setStyleClass(selection18.getStart(), selection18.getEnd(), "px18");
+                        textArea.setStyleClass(textArea.getSelection().getStart(), textArea.getSelection().getEnd(), "px18");
+                        break;
+                    case "20px":
+                        textArea.setStyleClass(textArea.getSelection().getStart(), textArea.getSelection().getEnd(), "px20");
+                        break;
+                }}});
+
+        //listener for actual font
+        fontCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldFont, String newFont) {
+                switch (newFont) {
+                    case "Arial":
+                        textArea.setStyleClass(textArea.getSelection().getStart(), textArea.getSelection().getEnd(), "Arial");
+                        //textArea.
+                        break;
+                    case "Times New Roman":
+                        textArea.setStyleClass(textArea.getSelection().getStart(), textArea.getSelection().getEnd(), "TNR");
+                        break;
+                    case "Calibri":
+                        textArea.setStyleClass(textArea.getSelection().getStart(), textArea.getSelection().getEnd(), "Calibri");
                         break;
                 }}});
     }
@@ -125,7 +147,7 @@ public class Controller implements Initializable {
         }
     }
     @FXML
-    private void save() {
+    private void save() {//This is the Plain Text Saver
         try {
             file.setTitle("Save As");
             File F = file.showSaveDialog(stage);

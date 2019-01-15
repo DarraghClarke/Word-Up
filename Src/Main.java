@@ -9,7 +9,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import static com.sun.org.apache.xalan.internal.utils.SecuritySupport.getResourceAsStream;
 
 public class Main extends Application {
 
@@ -26,6 +25,7 @@ public class Main extends Application {
         primaryStage.setY(bounds.getMinY());
         primaryStage.setWidth(bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

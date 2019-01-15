@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import com.pixelduke.control.Ribbon?>
 <?import com.pixelduke.control.ribbon.RibbonGroup?>
@@ -16,8 +15,9 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
 
-<?import org.fxmisc.richtext.StyledTextArea?>
 <?import org.fxmisc.richtext.StyleClassedTextArea?>
+
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="master-pane"
             stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Src.Controller">
     <center>
@@ -90,18 +90,26 @@
                                     <RibbonItem label="Font">
                                         <item>
                                             <ComboBox fx:id="fontCombo">
-
+                                                <items>
+                                                    <FXCollections fx:factory="observableArrayList">
+                                                        <String fx:value="Arial" />
+                                                        <String fx:value="Times New Roman" />
+                                                        <String fx:value="Calibri"/>
+                                                    </FXCollections>
+                                                </items>
                                             </ComboBox>
                                         </item>
                                     </RibbonItem>
                                     <RibbonItem label="Font Size">
                                         <item>
-                                            <ComboBox fx:id="fontSize" promptText="choose">
+                                            <ComboBox fx:id="fontSize" promptText="12px">
                                                 <items>
                                                     <FXCollections fx:factory="observableArrayList">
+                                                        <String fx:value="12px" />
                                                         <String fx:value="14px" />
                                                         <String fx:value="16px" />
                                                         <String fx:value="18px" />
+                                                        <String fx:value="20px" />
                                                     </FXCollections>
                                                 </items>
                                             </ComboBox>

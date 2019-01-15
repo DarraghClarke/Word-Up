@@ -1,17 +1,30 @@
-.text-area {
-    -fx-padding: 20px;
-    -fx-background-insets: 20px;
-}
-.text-area .content{
-    -fx-padding: 20px;
+.px12{
+    -fx-font-size: 12px;
 }
 .px14{
     -fx-font-size: 14px;
 }
-
 .px16{
     -fx-font-size: 16px;
 }
 .px18{
     -fx-font-size: 18px;
+}
+.px20{
+     -fx-font-size: 20px;
+ }
+.TNR {
+    -fx-font-family: "Times New Roman", Times, serif;
+}
+.Arial {
+    -fx-font-family: Arial;
+}
+.Calibri {
+ -fx-font-family: Calibri;
+}
+.menu-bar {
+    -fx-background-color: blue; // your color here
+}
+.menu{
+    -fx-background-color: blue;
 }
